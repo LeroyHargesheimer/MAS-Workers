@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yelp Data</title>
+</head>
+<body>
+<h1>Yelp Data</h1>
+<div id="data">
+    <!-- Hier wird die JSON-Datei angezeigt -->
+</div>
+
+<script>
+    fetch('YelpData.json')  // Hier den Pfad zur JSON-Datei angeben
+        .then(response => response.json())
+        .then(data => {
+            let jsonContent = "<pre>" + JSON.stringify(data, null, 2) + "</pre>";
+            document.getElementById("data").innerHTML = jsonContent;
+        })
+        .catch(error => console.log("Error loading the JSON data: " + error));
+</script>
+</body>
+</html>
