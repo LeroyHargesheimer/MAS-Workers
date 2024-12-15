@@ -43,14 +43,15 @@
 
             // Durchlaufen der JSON-Daten und Erstellen der Tabellenzeilen
             data.forEach(item => {
-                if (item["Bewertungen"] && item["Ranking und Name"]) {
+                if (item["Bewertungen"] && item["rankingUndName"]) {
                     let row = tableBody.insertRow();
 
                     let cell1 = row.insertCell(0);
                     let cell2 = row.insertCell(1);
 
+                    // Jetzt auf die richtigen Felder zugreifen
                     cell1.textContent = item["Bewertungen"];
-                    cell2.textContent = item["Ranking und Name"];
+                    cell2.textContent = item["rankingUndName"];
                 }
             });
         })
