@@ -5,55 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yelp Data</title>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 8px 12px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-        th {
+        pre {
             background-color: #f2f2f2;
+            padding: 10px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap; /* Zeilenumbruch für lange JSON-Daten */
+            word-wrap: break-word; /* Lange Wörter umbrechen */
         }
     </style>
 </head>
 <body>
 
-<h1>Yelp Data</h1>
+<h1>Yelp Data (JSON Format)</h1>
 
-<table id="yelp-table">
-    <thead>
-    <tr>
-        <th>Bewertungen</th>
-        <th>Ranking und Name</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- Hier werden die JSON-Daten angezeigt -->
-    </tbody>
-</table>
+<pre id="json-output">
+    <!-- Hier wird der JSON-Code angezeigt -->
+</pre>
 
 <script>
     fetch('YelpData.json')  // Hier den Pfad zur JSON-Datei angeben
         .then(response => response.json())
         .then(data => {
-            let tableBody = document.getElementById("yelp-table").getElementsByTagName("tbody")[0];
-
-            // Durchlaufen der JSON-Daten und Erstellen der Tabellenzeilen
-            data.forEach(item => {
-                if (item["Bewertungen"] && item["rankingUndName"]) {
-                    let row = tableBody.insertRow();
-
-                    let cell1 = row.insertCell(0);
-                    let cell2 = row.insertCell(1);
-
-                    // Jetzt auf die richtigen Felder zugreifen
-                    cell1.textContent = item["Bewertungen"];
-                    cell2.textContent = item["rankingUndName"];
-                }
-            });
+            // Den JSON-Code in den <pre>-Tag einfügen
+            const jsonString = JSON.stringify(data, null, 4); // Formatieren mit 4 Leerzeichen
+            document.getElementById("json-output").textContent = jsonString;
         })
         .catch(error => console.log("Error loading the JSON data: " + error));
 </script>
