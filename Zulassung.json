@@ -1,0 +1,22 @@
+{
+  "confirmationMessage": {
+    "title": "Willkommen bei Foodigo!",
+    "body": "Herzlichen Glückwunsch! Sie haben die Schulung erfolgreich bestanden und sind nun offiziell Teil unseres Fahrer-Teams bei Foodigo. Wir freuen uns darauf, gemeinsam mit Ihnen für exzellenten Service zu sorgen.",
+    "actions": [
+      {
+        "label": "Zu meinem Dashboard",
+        "action": "navigate",
+        "target": "/dashboard"
+      },
+      {
+        "label": "Schulung erneut ansehen",
+        "action": "navigate",
+        "target": "/training"
+      }
+    ],
+    "contactInfo": {
+      "supportEmail": "support@foodigo.com",
+      "supportPhone": "+49 123 456 789"
+    }
+  }
+}
